@@ -15,13 +15,11 @@ js/main.js        — плавный скролл, анимации, навиг�
 img/projects/     — скриншоты работ
 ```
 
-## Что заменить перед публикацией
+## Настройки
 
-1. **Форма.** В `index.html` найдите `YOUR_FORM_ID` и вставьте ID формы с [formspree.io](https://formspree.io) (бесплатный план — 50 заявок в месяц).
-2. **Telegram.** Замените `USERNAME` в ссылке `https://t.me/USERNAME` и в подписи `@USERNAME` (секция «Заказ»).
-3. **WhatsApp.** Номер в `https://wa.me/79773552841` и в подписи — если нужен другой.
-4. **ARKA.** Опубликован на GitHub Pages, ссылка уже в `js/projects.js`. Если у проекта нет живой ссылки — оставьте `url: ''` и укажите `repo`: кнопка станет «Код на GitHub».
-5. **Статус в hero** («Принимаю заказы на сентябрь») — в `js/i18n.js`, ключ `hero.status` (RU и EN) и в `index.html`.
+- **Форма** — Formspree, ID формы в атрибуте `action` у `<form id="order-form">` в `index.html`. Заявки приходят на почту, указанную в аккаунте Formspree.
+- **Контакты** — ссылки Telegram и WhatsApp в секции «Заказ» (`index.html`, блок `<ul class="contacts">`).
+- **Статус в hero** («Принимаю заказы на сентябрь») — ключ `hero.status` в `js/i18n.js` (RU и EN) и текст в `index.html`.
 
 ## Как добавить проект
 
