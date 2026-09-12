@@ -36,6 +36,36 @@ window.PROJECTS = [
     }
   },
   {
+    id: 'shinedress',
+    url: 'https://shinedress.online',
+    display: 'shinedress.online',
+    image: './img/projects/shinedress-full.jpg',
+    stack: ['HTML', 'CSS', 'JavaScript', 'Домен .online'],
+    type: 'landing',
+    ru: {
+      name: 'SHINE_DRESS — модный дом и ателье',
+      tags: ['Лендинг для услуг', 'Бишкек'],
+      desc: 'Сайт ателье с прокатом и пошивом платьев: услуги, lookbook, процесс работы и запись на примерку через WhatsApp.',
+      value: [
+        'Три услуги — прокат, покупка, индивидуальный пошив — с понятными условиями',
+        'Lookbook на 12 образов ведёт в Instagram за новыми работами',
+        'Запись на примерку в один клик — сразу в WhatsApp мастерской',
+        'Адрес, режим работы и контакты — клиент не ищет их в соцсетях'
+      ]
+    },
+    en: {
+      name: 'SHINE_DRESS — fashion house and atelier',
+      tags: ['Service landing page', 'Bishkek'],
+      desc: 'A site for a dress rental and tailoring atelier: services, lookbook, the working process and fitting appointments via WhatsApp.',
+      value: [
+        'Three services — rental, purchase, custom tailoring — with clear terms',
+        'A 12-look lookbook that leads to Instagram for new work',
+        'One-click fitting appointment straight into the atelier\'s WhatsApp',
+        'Address, opening hours and contacts — customers stop hunting for them on social media'
+      ]
+    }
+  },
+  {
     id: 'arka',
     url: 'https://erlan4761.github.io/sneakers-store-arka/',
     repo: 'https://github.com/erlan4761/sneakers-store-arka',
