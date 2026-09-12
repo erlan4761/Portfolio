@@ -1,5 +1,5 @@
 /* =========================================================
-   Поведение страницы: язык, навигация, плавный скролл,
+   Поведение страницы: язык, навигация, переходы по якорям,
    вступительная анимация, появление блоков, форма заказа.
    Все анимации выключаются при prefers-reduced-motion.
    ========================================================= */
@@ -9,7 +9,6 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches || location.search.indexOf('noanim') !== -1;
   var hasGsap = typeof gsap !== 'undefined';
-  var hasLenis = typeof Lenis !== 'undefined';
   var navH = 72;
 
   /* ---------- Язык ---------- */
@@ -26,25 +25,10 @@
   /* ---------- Год в футере ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ---------- Плавный скролл ---------- */
-  var lenis = null;
-  if (hasLenis && !reduceMotion) {
-    lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
-    if (hasGsap) {
-      gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
-      gsap.ticker.lagSmoothing(0);
-    } else {
-      (function raf(time) { lenis.raf(time); requestAnimationFrame(raf); })(0);
-    }
-  }
-
+  /* ---------- Переход по якорям (скролл страницы — нативный) ---------- */
   function scrollToTarget(target) {
-    if (lenis) {
-      lenis.scrollTo(target, { offset: -navH + 1, duration: 1.2 });
-    } else {
-      var top = target.getBoundingClientRect().top + window.pageYOffset - navH + 1;
-      window.scrollTo({ top: top, behavior: reduceMotion ? 'auto' : 'smooth' });
-    }
+    var top = target.getBoundingClientRect().top + window.pageYOffset - navH + 1;
+    window.scrollTo({ top: top, behavior: reduceMotion ? 'auto' : 'smooth' });
   }
 
   /* ---------- Навигация ---------- */
@@ -61,7 +45,7 @@
     burger.setAttribute('aria-expanded', String(open));
   });
 
-  // Якорные ссылки — через плавный скролл; клики по «Заказать похожий» подставляют тип сайта
+  // Якорные ссылки — с учётом высоты шапки; клики по «Заказать похожий» подставляют тип сайта
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href^="#"]');
     if (!a) return;
